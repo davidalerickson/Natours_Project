@@ -1,5 +1,4 @@
 .form {
-
     &__group:not(:last-child) {
         margin-bottom: 2rem;
     }
@@ -44,5 +43,50 @@
     &__input:placeholder-shown + &__label {//adjacent sibling CSS combinator
         transform: translateY(-4rem);
         opacity: 0;
+    }
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+        &
+    }
+    &__radio-label {
+        font-size: $default-font-size;
+        position: relative;
+        padding-left: 4rem;
+        cursor: pointer;
+
+    }
+
+    &__radio-button {
+        //custom button that we can style
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+
+  
+        &::after {
+            content: "";
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+            opacity: 0;
+            transition: all .3s;
+        }
+
+    }
+    &__radio-input {
+        display: none;
+    }
+    //Select radio input checked and changing inner check mark to visible on check
+    &__radio-input:checked + .form__radio-button::after{
+        opacity: 1;
     }
 }
