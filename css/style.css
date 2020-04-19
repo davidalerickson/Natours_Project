@@ -354,17 +354,14 @@ body {
   border: none;
   border-bottom: 2px solid transparent;
   width: 90%;
-  display: block; }
+  display: block;
+  transition: all .4s; }
   .form__input:focus {
     outline: none;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-bottom: 2px solid #7ed56f; }
     .form__input:focus:invalid {
       border-bottom: 2px solid #ff7730; }
-  .form__input:focus .form__label {
-    transform: translateY(2rem);
-    color: green;
-    opacity: 1; }
   .form__input::-webkit-input-placeholder {
     color: #aaa; }
 
@@ -373,7 +370,13 @@ body {
   font-weight: 700;
   margin-left: 2rem;
   margin-top: .7rem;
-  display: block; }
+  display: block;
+  opacity: 1;
+  transition: all .4s; }
+
+.form__input:placeholder-shown + .form__label {
+  transform: translateY(-4rem);
+  opacity: 0; }
 
 .story {
   width: 75%;
