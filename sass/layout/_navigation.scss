@@ -9,8 +9,10 @@
         position: fixed;
         top: 6rem;
         right: 6rem;
+        text-align: center; //to center the nav icon span element
         background-color: $color-white;
         box-shadow: 0 1rem 3rem rgba($color-black, .4);
+        cursor: pointer;
         z-index: 2000;
     }
     &__background {
@@ -83,6 +85,7 @@
         }
 
     }
+//FUNCTIONALITY
 
     &__checkbox:checked ~ &__background {
         //scale background on check
@@ -94,5 +97,60 @@
         width: 100%;
         opacity: 1;
     }
+
+//ICON
+
+&__icon {
+    position: relative;
+    margin-top: 3.5rem;
+    &,
+    &::before,
+    &::after {
+        width: 3rem;
+        height: 2px;
+        background-color: $color-grey-dark-3;
+        display: inline-block;
+    }
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: all .3s;
+    }
+
+    &::before {
+        top: -.8rem;
+    }
+    &::after {
+        top: .8rem;
+    }
+
+}
+
+&__button:hover  &__icon:before {
+    top: -1rem;
+}
+
+&__button:hover &__icon::after {
+    top: 1rem;
+}
+
+//Change Icon from hamburger to X when checked
+
+&__checkbox:checked + &__button &__icon {
+    background-color: transparent; //hide center bar of button when checked
+}
+
+&__checkbox:checked + &__button &__icon::before {
+    transform: rotate(135deg);
+    top: 0;
+
+}
+
+&__checkbox:checked + &__button &__icon:after {
+    transform: rotate(-135deg);
+    top: 0;
+}
 
 }
