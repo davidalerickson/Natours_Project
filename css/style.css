@@ -1,3 +1,20 @@
+/*
+For latest screen size data - https://gs.statcounter.com/screen-resolution-stats
+0-600px             Phone
+600-900px           Tablet in Portrait Mode
+900-1200px          Tablet in Lanscape Mode
+1200-1800px         Where our normal styles apply - desktop first approach (max-width)
+1800px +            Big Desktop
+Breakpoint Argument Choices
+phone
+tab-port
+tab-land
+big-desk
+1em = 16px using ems per research https://zellwk.com/blog/media-query-units/
+
+Order of attack: Base + Typography> General layout + Grid> Components 
+
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -38,6 +55,18 @@ html {
   font-size: 62.5%;
   /*Set root font size 62.5% of root font size which normally is 16 sets our root font size to 10px to 
                         make calculations easy, yet allow the user to change fontsize in the browser. Defines what 1rem is*/ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 30%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
