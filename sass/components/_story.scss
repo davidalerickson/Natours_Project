@@ -8,6 +8,15 @@
     padding-left: 9rem;
     font-size: $default-font-size;
     transform: skewX(-12deg); //skrew story. Unskew cannot be done with > * selector since cannot have more than one transform and _shape already has one
+    @include respond(tab_port){
+        width: 100%;
+    }
+    @include respond(phone){
+        transform: skewX(0) ;
+        padding: 5rem;
+        padding-left: 7rem;
+    }
+
 
 
     &__shape {
@@ -20,6 +29,9 @@
         -webkit-clip-path: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
         transform: translateX(-3rem) skewX(12deg); // shift circle to left for more space from text. Unskew circle
+        @include respond(phone){
+            transform: translateX(-3rem) skewX(0);
+        }
 
     }
 
@@ -31,6 +43,9 @@
     }
     &__text {
         transform: skewX(12deg); //unskew circle
+        @include respond(phone){
+            transform: skewX(0);
+        }
     }
     
     &__caption {
