@@ -3,17 +3,18 @@
     margin: 0 auto;
     &:not(:last-child){
         margin-bottom: $gutter-vertical;
+        @include respond(tab_port){
+            margin-bottom: $gutter-vertical-small;
+        }
     }
     @include clearfix;
 
-
-    //Select all columns that havd classname beginning with col- so we can apply shared properties
-    [class^="col-"]{
-        float: left;
-        &:not(:last-child){
-            margin-right: $gutter-horizontal;
-        }
+    margin-bottom: $gutter-vertical;
+    @include respond(tab_port){
+        max-width: 50rem; //bring column content back indented
+        // padding: 0 3rem;
     }
+
 
     .col-1-of-2{
         width: calc((100% - #{$gutter-horizontal})/2);
@@ -41,3 +42,19 @@
     }
 }
 
+    //Select all columns that have classname beginning with col- so we can apply shared properties
+    [class^="col-"]{
+        float: left;
+        @include respond(tab_port){
+            width: 100% !important;
+        }
+
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+            @include respond(tab_port){
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+
+        }
+    }
