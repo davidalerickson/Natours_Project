@@ -5,8 +5,18 @@
         url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
+    margin-bottom: $gutter-vertical;
+    @include respond(tab_port){
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%);
+    }
+    @include respond(phone){
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 87vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 88vh, 0 100%);
+    }
     &__logo-box {
         position: absolute;
         top: 4rem;
